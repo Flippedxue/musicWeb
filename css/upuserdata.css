@@ -1,0 +1,72 @@
+.main {
+  padding: 40px;
+  min-height: 700px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+}
+
+.main .title h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.main .content {
+  margin-top: 30px;
+}
+
+.main .content .item {
+  display: flex;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.main .content .item:last-child {
+  margin-top: 20px;
+  height: 30px;
+}
+
+.main .content .item button {
+  width: 50px;
+}
+
+.main .content .item label {
+  line-height: 29px;
+}
+
+.main .content input[id='nickname'] {
+  flex: 1;
+  height: 29px;
+  margin-left: 5px;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  line-height: 19px;
+}
+
+.main .content input[id='birthday'] {
+  flex: 1;
+  height: 29px;
+  margin-left: 5px;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  line-height: 19px;
+}
+
+.main .content input[id='email'] {
+  flex: 1;
+  height: 29px;
+  margin-left: 5px;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  line-height: 19px;
+}
+
+.main .content input[id='area'] {
+  flex: 1;
+  height: 29px;
+  margin-left: 5px;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  line-height: 19px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>头像裁剪</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/upuserhead.css">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+  <div class="top">
+    <div class="topbar wrapper_01">
+      <div class="bar-left">
+        <h1 class="logo">
+          <a href="#">网易云音乐</a>
+        </h1>
+        <ul class="list">
+          <li><a href="#" class="item">发现音乐</a></li>
+          <li><a href="#" class="item">排行榜</a></li>
+          <li><a href="#" class="item">歌单</a></li>
+          <li><a href="#" class="item">歌手</a></li>
+          <li><a href="#" class="item">我的音乐</a></li>
+          <li><a href="#" class="item">关注</a></li>
+        </ul>
+      </div>
+      <div class="bar-right">
+        <div class="search">
+          <input type="text" placeholder="搜索音乐">
+        </div>
+        <div class="anthor">
+          <a href="#">创作者中心</a>
+        </div>
+        <div class="login">
+          <a class="loginOruser" href="login.html">登录</a>
+          <div class="dropdown">
+            <ul>
+              <li><a href="homepage.html">我的主页</a></li>
+              <li><a href="#" class="logout">退出</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="main wrapper_02">
+    <input type="file" class="fileInput" accept="image/*">
+    <div class="container">
+      <div class="left">
+        <canvas class="canvas" width="300" height="300"></canvas>
+        <button class="save">保存</button>
+        <button class="cancel">取消</button>
+      </div>
+      <div class="right">
+        <div class="previewArea">
+          <h3>头像预览</h3>
+          <canvas class="previewLarge" width="180" height="180"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../js/upuserhead.js"></script>
+  <script src="../js/top.js"></script>
+</body>
+
+</html>

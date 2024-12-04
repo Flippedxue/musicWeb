@@ -1,0 +1,93 @@
+.main {
+  padding: 40px;
+  min-height: 700px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+}
+
+.main .personalData {
+  display: flex;
+}
+
+.main .personalData .areaLeft {
+  position: relative;
+}
+
+.main .personalData .areaLeft:hover .btm {
+  display: block;
+}
+
+.main .personalData .areaLeft .userHead {
+  width: 194px;
+  height: 194px;
+  margin-right: 40px;
+}
+
+.main .personalData .areaLeft .userHead img {
+  width: 188px;
+  height: 188px;
+  padding: 3px;
+  background: #fff;
+  border: 1px solid #d5d5d5;
+}
+
+.main .personalData .areaLeft .btm {
+  display: none;
+  position: absolute;
+  left: 4px;
+  bottom: 9px;
+  height: 26px;
+  width: 180px;
+  background: #8e8e8e;
+  opacity: 0.8;
+}
+
+.main .personalData .areaLeft .btm .upload {
+  position: absolute;
+  left: 4px;
+  bottom: -1px;
+  height: 26px;
+  width: 180px;
+  line-height: 26px;
+  text-align: center;
+  color: #fff;
+}
+
+.main .personalData .areaLeft .btm .upload:hover {
+  text-decoration: underline;
+}
+
+.main .personalData .areaRight .userInfo {
+  width: 670px;
+  height: 188px;
+}
+
+.main .personalData .areaRight .userInfo .userName {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.main .personalData .areaRight .userInfo .userName span {
+  margin-top: 3px;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 30px;
+}
+
+.edit {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.main .personalData .areaRight .userInfo .userEmail,
+.main .personalData .areaRight .userInfo .userArea,
+.main .personalData .areaRight .userInfo .userBirth,
+.main .personalData .areaRight .userInfo .userGender {
+  font-size: 12px;
+  line-height: 21px;
+  margin-top: 5px;
+}

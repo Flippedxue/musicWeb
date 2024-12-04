@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  outline: none;
+}
+
+i {
+  font-style: normal;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+img {
+  vertical-align: top;
+}

@@ -1,0 +1,215 @@
+.outline {
+  width: 100%;
+  height: 300px;
+  background: url(../images/myMusic_bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.avatar {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  top: 20px;
+}
+
+.avatar_title {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  top: 30px;
+}
+
+.avatar_title .name {
+  font-family: poppin, Tahoma, Arial, \5FAE\8F6F\96C5\9ED1, sans-serif;
+  font-size: 30px;
+  color: #fff;
+}
+
+.g_bd {
+  min-height: 800px;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  border-width: 0 1px;
+  padding: 40px;
+}
+
+.g_wrap {
+  width: 100%;
+  min-height: 800px;
+  height: auto;
+
+}
+
+
+.myMusic-result {
+  margin-top: 20px;
+  width: 100%;
+  height: 660px;
+}
+
+.myMusic-result-title {
+  width: 100%;
+  height: 40px;
+  background-color: #eeecec;
+  cursor: pointer;
+}
+
+.myMusic-result-title ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 39px;
+  border: 1px solid #ccc;
+}
+
+.myMusic-result-title ul li:first-child {
+  padding-left: 50px;
+  flex: 7;
+}
+
+.myMusic-result-title ul li:not(:first-child) {
+  flex: 2;
+  text-align: center;
+}
+
+
+.myMusic-result-list {
+  margin-top: 10px;
+  width: 100%;
+  height: 560px;
+}
+
+.myMusic-result-list ul li {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  border: 1px solid #e1e1e1;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  font-family: "微软雅黑";
+}
+
+.myMusic-result-list ul li:hover {
+  background: #e0dfdf;
+}
+
+.myMusic-result-list ul li .name {
+  margin-right: 50px;
+  display: flex;
+  flex: 7;
+  width: 50%;
+  padding-left: 10px;
+  line-height: 40px;
+}
+
+.myMusic-result-list ul li .name .num {
+  display: none;
+}
+
+.myMusic-result-list ul li .name .url {
+  display: none;
+}
+
+.myMusic-result-list ul li .name .musicPic {
+  display: none;
+}
+
+.myMusic-result-list ul li .name .btn1 {
+  margin-top: 11px;
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+  background: url('../images/main_sprite.png') no-repeat;
+}
+
+.myMusic-result-list ul li .name .btn1.play1 {
+  background-position: -267px -268px;
+}
+
+.myMusic-result-list ul li .name .btn1.play1:hover {
+  background-position: -267px -288px;
+}
+
+.myMusic-result-list ul li .name .title {
+  flex: 1;
+}
+
+.myMusic-result-list ul li .name .operation {
+  display: none;
+  align-items: center;
+  width: 120px;
+
+}
+
+.myMusic-result-list ul li .name:hover .operation {
+  display: flex;
+}
+
+.myMusic-result-list ul li .name .operation .btn {
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+  background: url('../images/title_sprite.png') no-repeat;
+}
+
+.myMusic-result-list ul li .name .operation .btn.add {
+  background: url('../images/iconall_sprite.png') no-repeat;
+  background-position: 0 -700px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.add:hover {
+  background-position: -22px -700px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.favor {
+  background-position: 0 -174px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.favor:hover {
+  background-position: -20px -174px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.share {
+
+  background-position: 0 -195px;
+  ;
+}
+
+.myMusic-result-list ul li .name .operation .btn.share:hover {
+  background-position: -20px -195px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.download {
+
+  background-position: -81px -174px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.download:hover {
+  background-position: -104px -174px;
+}
+
+.myMusic-result-list ul li .name .operation .btn.delete {
+  background: url('../images/icon_delete.png') no-repeat;
+  background-size: cover;
+}
+
+.myMusic-result-list ul li .name .operation .btn.delete:hover {
+  background: url('../images/icon_delete_red.png') no-repeat;
+  background-size: cover;
+}
+
+.myMusic-result-list ul li .detail {
+  width: 50%;
+  display: flex;
+  flex: 6;
+  justify-content: space-around;
+  align-items: center;
+}
