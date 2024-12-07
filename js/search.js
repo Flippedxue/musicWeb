@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
                               <div class="operation">
                                   <a class="btn add" href="#" title="添加到播放列表"></a>
                                   <a class="btn favor" href="#" title="收藏"></a>
+                                  <a class="btn toMusicList" href="#" title="添加到歌单"></a>
                                   <a class="btn share" href="#" title="分享"></a>
                                   <a class="btn download" href="#" title="下载"></a>
-                                  <a class="btn delete" href="#" title="删除"></a>
                               </div>
                           </div>
                           <div class="detail">
@@ -94,24 +94,25 @@ searchBtn.addEventListener('click', function (e) {
       if (songObj) {
         let list = songObj;
         let theLi = list.map(item => `<li class="item1">
-                            <div class="name">
-                                <a class="btn1 play1" href="#"></a>
-                                <a class="num" href="#" >${item.id}</a>
-                                <a class="title" href="#">${item.musicName}</a>
-                                <a class="url" href="#">${item.url}</a>
-                                <a class="musicPic" href="#">${item.musicPic}</a>
-                                <div class="operation">
-                                    <a class="btn add" href="#"></a>
-                                    <a class="btn favor" href="#"></a>
-                                    <a class="btn share" href="#"></a>
-                                    <a class="btn download" href="#"></a>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <a href="#">${item.singerName}</a>
-                                <a href="#">${item.album}</a>
-                                <a href="#">${item.duration}</a>
-                            </div>
+                              <div class="name">
+                              <a class="btn1 play1" href="#" title="播放"></a>
+                              <a class="num" href="#" >${item.id}</a>
+                              <a class="title" href="#" >${item.musicName}</a>
+                              <a class="url" href="#">${item.url}</a>
+                              <a class="musicPic" href="#">${item.musicPic}</a>
+                              <div class="operation">
+                                  <a class="btn add" href="#" title="添加到播放列表"></a>
+                                  <a class="btn favor" href="#" title="收藏"></a>
+                                  <a class="btn toMusicList" href="#" title="添加到歌单"></a>
+                                  <a class="btn share" href="#" title="分享"></a>
+                                  <a class="btn download" href="#" title="下载"></a>
+                              </div>
+                          </div>
+                          <div class="detail">
+                              <a href="#">${item.singerName}</a>
+                              <a href="#">${item.album}</a>
+                              <a href="#">${item.duration}</a>
+                          </div>
                         </li>`).join('');
         document.querySelector('.search-result-list ul').innerHTML = theLi;
       }
@@ -199,7 +200,74 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
       alertFn('收藏失败', false);
     });
   }
+  //-------------
+  //添加音乐到歌单
+  const win_box = document.querySelector('.win_box');
+  if (e.target.classList.contains('toMusicList')) {
+    e.preventDefault();
+    const musicId = parseInt(e.target.closest('.item1').querySelector('.num').innerText);
+    const token = localStorage.getItem('token');
+    win_box.style.display = 'block';
+    axios({
+      url: 'http://localhost:8080/musicList/getUserMusicLists',
+      method: 'get',
+      headers: { 'Authorization': token }
+    }).then(result => {
+      const musicListObj = result.data.data;
+      if (musicListObj) {
+        let list = musicListObj;        
+        let theLi = list.map(item => `<li class="item_other">
+              <div class="item_pic">
+                  <img src="${item.musicListPic}" alt="">
+              </div>
+              <div class="item_info">
+                  <span class="num">${item.id}</span>
+                  <h3>${item.musicListName}</h3>
+              </div>
+          </li>`).join('');
+          
+        document.querySelector('.win_box .musicList_list ul').innerHTML = theLi;
+      }//--------------------------------------------------------
+      //点击歌曲要添加歌单的列表
+      document.querySelector('.win_box .musicList_list ul').addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log(e.target.querySelector('.num').innerText);
+        
+        if (e.target.classList.contains('item_other')) {
+          axios({
+            url: 'http://localhost:8080/musicList/addMusic',
+            method: 'post',
+            data: {
+              musicId,
+              musicListId: parseInt(e.target.querySelector('.num').innerText)//-----------------------------------------------
+            },
+            headers: { 'Authorization': token }
+          }).then(result => {
+            console.log(result.data.message);
+            alertFn(result.data.message, true);
+            win_box.style.display = 'none';
+          }).catch(error => {
+            console.log(error.data.message);
+            alertFn(error.data.message, false);
+          })
+        }
+      })
+      //关闭小窗口
+      const quxiao = document.querySelector('.win_box .win_nav .close');
+      quxiao.addEventListener('click', function (e) {
+        e.preventDefault();
+        win_box.style.display = 'none';
+      })
+    })
+
+
+  }
+
+
 });
+
+//-------------------------------------------------------
+
 
 // 音乐的开始和暂停方法
 function musicPlaySet() {
@@ -383,7 +451,6 @@ function listSet() {
 function musicJump() {
   function updateMusic() {
     const songObj = JSON.parse(localStorage.getItem('songInfo'));
-
     for (let i = 0; i < songObj.length; i++) {
       if (songObj[i].id == musicidList[currentIndex]) {
         musicOBJ.src = songObj[i].url;
@@ -440,3 +507,4 @@ document.addEventListener('mousemove', function (event) {
     playBox.style.visibility = 'hidden';
   }
 });
+

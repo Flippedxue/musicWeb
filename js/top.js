@@ -100,3 +100,17 @@ btn_myMusic.addEventListener('click', function () {
 
   })
 });
+
+
+const btn_musicList = document.querySelector('.top .list li:nth-child(3) a');
+btn_musicList.addEventListener('click', function () {
+  axios({
+    url: 'http://localhost:8080/musicList/getUserMusicLists',
+    method: 'get',
+    headers: { 'Authorization': token }
+  }).then(result => {
+    localStorage.setItem('musicListInfo', JSON.stringify(result.data.data))
+    window.location.href = 'musicList.html'
+
+  })
+});

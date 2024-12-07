@@ -145,7 +145,7 @@
 .myMusic-result-list ul li .name .operation {
   display: none;
   align-items: center;
-  width: 120px;
+  width: 150px;
 
 }
 
@@ -176,7 +176,15 @@
 .myMusic-result-list ul li .name .operation .btn.favor:hover {
   background-position: -20px -174px;
 }
+.myMusic-result-list ul li .name .operation .btn.toMusicList {
+  background: url('../images/addlist.png') no-repeat;
+  background-size: cover;
+}
 
+.myMusic-result-list ul li .name .operation .btn.toMusicList:hover {
+  background: url('../images/addlist_black.png') no-repeat;
+  background-size: cover;
+}
 .myMusic-result-list ul li .name .operation .btn.share {
 
   background-position: 0 -195px;

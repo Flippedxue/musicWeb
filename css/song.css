@@ -1,0 +1,140 @@
+.main {
+  padding: 40px;
+  min-height: 700px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+}
+.main .song {
+  display: flex;
+}
+.main .song .songHead {
+  position: relative;
+  width: 198px;
+  height: 198px;
+  margin-right: 30px;
+}
+.main .song .songHead img {
+  width: 130px;
+  height: 130px;
+  margin: 34px;
+}
+.main .song .songHead .songHeadborder {
+  position: absolute;
+  width: 206px;
+  height: 205px;
+  top: -4px;
+  left: -4px;
+  background: url(../images/cover_sprite.png) -140px -580px;
+}
+.main .song .songInfo {
+  width: 414px;
+  min-height: 500px;
+}
+.main .song .songInfo .title {
+  font-size: 24px;
+}
+.main .song .songInfo .singer {
+  margin: 10px 0;
+  color: #999;
+}
+.main .song .songInfo .album {
+  margin: 10px 0;
+  color: #999;
+}
+.main .song .songInfo .lyric {
+  line-height: 23px;
+  margin-top: 13px;
+}
+.main .comment {
+  margin-top: 30px;
+}
+.main .comment .title {
+  height: 33px;
+  border-bottom: 2px solid #c20c0c;
+}
+.main .comment .title h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: normal;
+}
+.main .comment .cmmt {
+  margin-top: 20px;
+}
+.main .comment .cmmt .user {
+  display: flex;
+  margin-bottom: 20px;
+}
+.main .comment .cmmt .user .head img{
+  width: 50px;
+  height: 50px;
+}
+.main .comment .cmmt .user textarea {
+  height: 50px;
+  width: 78%;
+  resize: none;
+  margin: 0;
+  padding: 5px 6px 6px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: 1px solid #cdcdcd;
+  outline: 1px solid #cdcdcd;
+  border-radius: 2px;
+  line-height: 19px;
+  box-sizing: content-box;
+}
+.main .comment .cmmt .user .btn {
+  line-height: 25px;
+}
+.main .comment .cmmt .user .btn a{
+  display: block;
+  width: 40px;
+  height: 30px;
+  background-color: rgb(97, 80, 160);
+  color: white;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.main .comment .cmmt .user .btn a:hover{
+  background-color: #000;
+}
+.main .comment .cmmts h3{
+  height: 20px;
+  border-bottom: 1px solid #cfcfcf;
+  font-size: 100%;
+}
+.main .comment .cmmts .itm {
+  display: flex;
+  padding: 15px 0;
+  border-top: 1px dotted #ccc;
+}
+.main .comment .cmmts .itm .head img {
+  width: 50px;
+  height: 50px;
+}
+.main .comment .cmmts .itm .cnt {
+  line-height: 20px;
+  margin-left: 15px;
+  width: 100%;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.main .comment .cmmts .itm .cnt .name {
+  margin-right: 5px;
+  color: #0c73c2;
+}
+.main .comment .cmmts .time {
+  color: #999;
+  display: inline-block;
+}
+.main .comment .cmmts .delete {
+  color: #666;
+  cursor: pointer;
+}
+.main .comment .cmmts .delete:hover {
+  text-decoration: underline;
+}

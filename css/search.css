@@ -152,7 +152,7 @@
 .search-result-list ul li .name .operation {
   display: none;
   align-items: center;
-  width: 120px;
+  width: 140px;
 
 }
 
@@ -183,7 +183,15 @@
 .search-result-list ul li .name .operation .btn.favor:hover {
   background-position: -20px -174px;
 }
+.search-result-list ul li .name .operation .btn.toMusicList {
+  background: url('../images/addlist.png') no-repeat;
+  background-size: cover;
+}
 
+.search-result-list ul li .name .operation .btn.toMusicList:hover {
+  background: url('../images/addlist_black.png') no-repeat;
+  background-size: cover;
+}
 .search-result-list ul li .name .operation .btn.share {
 
   background-position: 0 -195px;
@@ -209,42 +217,96 @@
   justify-content: space-around;
   align-items: center;
 }
-
-.search_page {
-  margin-top: 10px;
-  margin: 0 auto;
+.win_box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-color: pink;
+}
+.win_box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  min-height: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #1e1d1d;
+ display: none;
+}
+.win_box .win_nav{
   width: 100%;
-  height: 20px;
+  height: 40px;
+  background-color: black;
+  border-radius: 5px 5px 0 0;
   display: flex;
-  justify-content: center;
-  font-size: 16px;
-
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+}
+.win_box .win_nav p{
+  margin-left: 10px;
+}
+.win_box .win_nav a{
+  width: 15px;
+  height: 15px;
+  background-image: url('../images/close.png');
+  background-size: cover;
+  margin-right: 10px;
+}
+.musicList_list li {
+  width: 100%;
+  height: 65px;
+}
+.musicList_list  .item_info{
+  display: flex;
+  width: auto;
+  height: 50px;
+  line-height: 50px;
+}
+.musicList_list  .item_info{
+  display: flex;
+}
+.musicList_list .item_info .num{
+  opacity: 0;
+}
+.musicList_list .item_info .pic {
+  display: none;
+}
+hr{
+    margin: 5px;
+}
+.musicList_list{
+    width: 100%;
 }
 
-.search_page a {
-  border: 1px solid #ccc;
-  margin: 0 5px;
-  text-align: center;
-  line-height: 25px;
+.musicList_list li{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #d3d3d3;
+    cursor: pointer;
+    position: relative;
+}
+.musicList_list li:hover{
+    background-color: #e0dfdf;
 }
 
-.search_page a:hover {
-  border: 1px solid #989494;
 
+.musicList_list li .item_pic img{
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.search_page .abc {
-  width: 25px;
-  height: 25px;
-}
-
-.search_page .abce {
-  width: 25px;
-  height: 25px;
-  background-color: red;
-}
-
-.search_page .abcd {
-  width: 70px;
-  height: 25px;
-}
