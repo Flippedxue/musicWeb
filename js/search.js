@@ -144,6 +144,7 @@ function alertFn(msg, isSuccess) {
 
 
 document.querySelector('.search-result-list ul').addEventListener('click', function (e) {
+  // 点击播放按钮
   if (e.target.classList.contains('play1')) {
     e.preventDefault();
 
@@ -166,6 +167,37 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
       stateSet.click();
     }, { once: true });
   }
+  if (e.target.classList.contains('title')) {
+    e.preventDefault();
+
+    const musicId = e.target.closest('.item1').querySelector('.num').innerText;
+
+    Promise.all([
+        axios({
+            url: 'http://localhost:8080/music/getMusicById',
+            method: 'get',
+            params: { musicId }
+        }),
+        axios({
+            url: 'http://localhost:8080/comment/getComments',
+            method: 'get',
+            params: { musicId }
+        })
+    ]).then(results => {
+
+        const musicResult = results[0];
+        localStorage.setItem('songIf', JSON.stringify(musicResult.data.data));
+
+
+        const commentResult = results[1];
+        localStorage.setItem('commentIf', JSON.stringify(commentResult.data.data));
+        window.location.href = 'song.html';
+    }).catch(error => {
+        console.error('请求发生错误:', error);
+    });
+}
+
+  // 点击添加到播放列表按钮
   if (e.target.classList.contains('add')) {
     e.preventDefault()
 
@@ -180,6 +212,7 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
       musicidList.push(songId);
     }
   }
+  // 点击收藏按钮
   if (e.target.classList.contains('favor')) {
     e.preventDefault();
     const musicId = e.target.closest('.item1').querySelector('.num').innerText;

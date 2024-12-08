@@ -26,7 +26,6 @@ window.addEventListener('DOMContentLoaded', function () {
           } else {
             console.log('错误信息', res.data.message);
           }
-
         } catch (error) {
           console.error('请求出错', error);
         }

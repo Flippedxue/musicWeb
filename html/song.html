@@ -65,147 +65,11 @@
         <div class="album">
           所属专辑：再见你好吗
         </div>
-        <div class="lyric">
-          作词 : 卢广仲/周启儿
-          <br>
-          作曲 : 陶喆/卢广仲
-          <br>
-          编曲 : 陶喆
-          <br>
-          制作人 : 陶喆
-          <br>
-          hola! 最近还好吗 hola! 好久不见啦
-          <br>
-          今天忙不忙 想和你分享 我遇见一个女孩
-          <br>
-          好巧我也遇见一个女孩 让我想定下来
-          <br>
-          她有 最真的笑容 最美的想法
-          <br>
-          我一百分的女孩
-          <br>
-          那个女孩 留着长长的头发
-          <br>
-          穿着白色的衬衫
-          <br>
-          很专心听我说话
-          <br>
-          她的身上(有着淡淡的玫瑰花香)
-          <br>
-          总是那样(认真分析着我的笑话)
-          <br>
-          彷彿有种(谁也不应该宠坏她的)倔强
-          <br>
-          那个女孩 说男生不要太帅
-          <br>
-          但脾气不能太坏
-          <br>
-          会唱歌的男生最让她崇拜
-          <br>
-          开口笑就会停不下来
-          <br>
-          每本书只会读到一半
-          <br>
-          没想到我们会喜欢同一种女孩 What a girl
-          <br>
-          What a lovely girl
-          <br>
-          She's my lovely girl
-          <br>
-          What a lovely girl
-          <br>
-          hola! 好久不见啦 hola! 最近还好吧
-          <br>
-          最近忙不忙 想不想谈谈
-          <br>
-          我说的那个女孩
-          <br>
-          让我先说说我那个女孩
-          <br>
-          她最近有点怪
-          <br>
-          总是看着我发呆 常漏接电话
-          <br>
-          我真的没有办法
-          <br>
-          那个女孩 刚刚剪短了头发
-          <br>
-          还是穿白色衬衫
-          <br>
-          太专心听我说话
-          <br>
-          她的身上(一样淡淡的玫瑰花香)
-          <br>
-          不再那样(认真分析着我的笑话)
-          <br>
-          少了那种(谁也不应该宠坏她的)倔强
-          <br>
-          那个女孩 说明年想去希腊
-          <br>
-          她现在想学吉他
-          <br>
-          想要写一首歌给自己来唱
-          <br>
-          她的小狗牠叫做Luka
-          <br>
-          她的生日是三月十八
-          <br>
-          该不会我们说的是同一个女孩 What a girl
-          <br>
-          What a crazy girl
-          <br>
-          She's my crazy girl
-          <br>
-          喔 竟然结果是这样 woo~
-          <br>
-          那个女孩 说男生不要太帅
-          <br>
-          但脾气不能太坏
-          <br>
-          会唱歌的男生最让她崇拜
-          <br>
-          那些她曾经说过的话
-          <br>
-          对你对我可能还对他
-          <br>
-          没想到我们会输给同一个女孩
-          <br>
-          就当作我们的默契吧
-          <br>
-          就当作我们的秘密吧
-          <br>
-          就当作我们从没遇见那个女孩 what a girl
-          <br>
-          编程 : 陶喆
-          <br>
-          键盘 : 吴庆隆
-          <br>
-          木吉他 : Jamie Wilson
-          <br>
-          电贝斯 : Paul Bushnel
-          <br>
-          打击乐 : Luis Conte
-          <br>
-          鼓 : Blair Sinta
-          <br>
-          和声 : 陶喆/卢广仲
-          <br>
-          录音工程 : Craig Burbidge/Daniel Willy/朱敬然
-          <br>
-          录音助理 : John Cranfield/梁恩杰
-          <br>
-          录音室 : Steakhouse Studio (LA)/新歌录音室 (台北)
-          <br>
-          配唱录音 : 朱敬然
-          <br>
-          配唱录音室 : 新歌录音室 (台北)
-          <br>
-          和声剪辑 : 朱敬然
-          <br>
-          混音 : Craig Burbidge
-          <br>
-          混音录音室 : 新歌录音室
-          <br>
+        <div class="lyrics-container">
+          <div class="lyrics" id="lyrics">
+            <!-- 歌词内容将在这里显示 -->
+          </div>
+          <button id="toggleLyricsBtn">展开</button>
         </div>
       </div>
     </div>
@@ -221,30 +85,35 @@
           <textarea placeholder="写下你的评论..." id="tx"></textarea>
           <div class="btn">
             <div class="total">0/140</div>
-            <a class="">评论</a>
+            <a class="commentBtn">评论</a>
           </div>
         </div>
       </div>
       <div class="cmmts">
         <h3>精彩评论</h3>
-        <div class="item">
-          <div class="itm">
-            <div class="head">
-              <img src="../images/userHead_01.jpg">
+        <ul class="comment-list">
+          <li class="item">
+            <div class="itm">
+              <div class="head">
+                <img src="../images/userHead_01.jpg">
+              </div>
+              <div class="cnt">
+                <a href="#" class="name">爱笑的呆呆</a>
+                ：nihao
+              </div>
             </div>
-            <div class="cnt">
-              <a href="" class="name">爱笑的呆呆</a>
-              ：nihao
+            <div class="time">
+              2021-01-01 12:00:00
             </div>
-          </div>
-          <div class="time">
-            2021-01-01 12:00:00
-          </div>
-          <a class="delete">删除</a>
-        </div>
+            <a class="delete" data-userId='' data-commentId=''>删除</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </body>
 <script src="../js/song.js"></script>
+<script src="../js/top.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </html>
