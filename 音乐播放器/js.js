@@ -312,3 +312,76 @@ if (document.querySelector('.rank-section .song-list')) {
         }
     })
 }
+if (document.querySelector('.rank-section .new-list')) {
+    document.querySelector('.rank-section .new-list').addEventListener('click', function (e) {
+        if (e.target.classList.contains('play')) {
+            e.preventDefault()
+
+            songSrc = e.target.dataset.src
+            songImg = e.target.dataset.img
+            songTitle = e.target.dataset.title
+
+            musicInfoShow.innerText = songTitle;
+            musicOBJ.src = songSrc;
+            musicBOXbc.src = songImg;
+            musicHead.src = songImg;
+
+            musicStop();
+
+            nowtime = 0;
+            proLine.style.width = "0px";
+            musicOBJ.currentTime = 0;
+
+            musicOBJ.addEventListener('loadedmetadata', function () {
+                stateSet.click();
+            }, { once: true });
+        }
+        if (e.target.classList.contains('add')) {
+            e.preventDefault()
+
+            songTitle = e.target.dataset.title
+
+            if (!musicList.includes(songTitle)) {
+                musicList.push(songTitle);
+            } else {
+                alert(songTitle + " 已经在播放列表中");
+            }
+        }
+    })
+}if (document.querySelector('.rank-section .origin-list')) {
+    document.querySelector('.rank-section .origin-list').addEventListener('click', function (e) {
+        if (e.target.classList.contains('play')) {
+            e.preventDefault()
+
+            songSrc = e.target.dataset.src
+            songImg = e.target.dataset.img
+            songTitle = e.target.dataset.title
+
+            musicInfoShow.innerText = songTitle;
+            musicOBJ.src = songSrc;
+            musicBOXbc.src = songImg;
+            musicHead.src = songImg;
+
+            musicStop();
+
+            nowtime = 0;
+            proLine.style.width = "0px";
+            musicOBJ.currentTime = 0;
+
+            musicOBJ.addEventListener('loadedmetadata', function () {
+                stateSet.click();
+            }, { once: true });
+        }
+        if (e.target.classList.contains('add')) {
+            e.preventDefault()
+
+            songTitle = e.target.dataset.title
+
+            if (!musicList.includes(songTitle)) {
+                musicList.push(songTitle);
+            } else {
+                alert(songTitle + " 已经在播放列表中");
+            }
+        }
+    })
+}

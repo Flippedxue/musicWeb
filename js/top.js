@@ -83,11 +83,53 @@ btn.addEventListener('keydown', function (e) {
     })
   }
 })
+const suggestionsBox = document.querySelector('.suggestions');
+btn.addEventListener('input', function () {
+  const keyword = btn.value.trim();
+  if (keyword) {
+    axios({
+      url: 'http://localhost:8080/music/search', 
+      method: 'get',
+      params: {
+        key: keyword
+      }
+    }).then(result => {
+      if (result.data.code === 0) {
+        populateSuggestions(result.data.data);
+      }
+    }).catch(err => {
+      console.error("请求建议失败", err);
+    });
+  } else {
+    suggestionsBox.style.display = 'none';
+  }
+});
+
+function populateSuggestions(suggestions) {
+  suggestionsBox.innerHTML = '';
+  if (suggestions.length > 0) {
+    suggestions.forEach(item => {
+      const suggestionItem = document.createElement('div');
+      suggestionItem.textContent = `${item.musicName} - ${item.singerName}`;
+      suggestionItem.classList.add('suggestion-item');
+
+      suggestionItem.addEventListener('click', function() {
+        btn.value = item.musicName; 
+        suggestionsBox.style.display = 'none'; 
+      });
+
+      suggestionsBox.appendChild(suggestionItem);
+    });
+    suggestionsBox.style.display = 'block';
+  } else {
+    suggestionsBox.style.display = 'none';
+  }
+}
 
 
 
 const token = localStorage.getItem('token');
-const btn_myMusic = document.querySelector('.top .list li:nth-child(5) a');
+const btn_myMusic = document.querySelector('.top .list li:nth-child(3) a');
 btn_myMusic.addEventListener('click', function () {
   axios({
     url: 'http://localhost:8080/myMusics/getMyMusics',
@@ -101,7 +143,7 @@ btn_myMusic.addEventListener('click', function () {
 });
 
 
-const btn_musicList = document.querySelector('.top .list li:nth-child(3) a');
+const btn_musicList = document.querySelector('.top .list li:nth-child(2) a');
 btn_musicList.addEventListener('click', function () {
   axios({
     url: 'http://localhost:8080/musicList/getUserMusicLists',

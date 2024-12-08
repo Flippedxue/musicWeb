@@ -29,16 +29,16 @@
 }
 
 .topbar .bar-left .list {
+  margin-left: 15px;
   display: flex;
 }
 
 .topbar .bar-left .list .item {
   position: relative;
   display: block;
-  padding: 0 20px;
+  padding: 0 30px;
   font-size: 14px;
   color: #ccc;
-
 }
 
 .topbar .bar-left .list .item:hover,
@@ -135,6 +135,7 @@
 }
 
 .topbar .bar-right .search {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: right;
@@ -149,6 +150,33 @@
 .topbar .bar-right .search input {
   width: 120px;
 }
+.suggestions {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  z-index: 1000;
+  width: calc(150%);
+  border-radius: 5px;
+}
+.suggestions::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+.suggestion-item {
+  padding: 3px 10px;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
 
 
 /*-------------------------------------------------------------------------*/
@@ -418,7 +446,7 @@
   color: #333;
 }
 
-.rank-section .content .rank .header .info .operation {
+/* .rank-section .content .rank .header .info .operation {
   margin-top: 12px;
 }
 
@@ -444,7 +472,7 @@
 
 .rank-section .content .rank .header .info .btn.favor:hover {
   background-position: -300px -235px;
-}
+} */
 
 .rank-section .rank .list .item {
   display: flex;
@@ -506,9 +534,9 @@
   background-position: 2px -698px;
 }
 
-.rank-section .rank .list .item .operation .btn.favor {
+/* .rank-section .rank .list .item .operation .btn.favor {
   background-position: -297px -268px;
-}
+} */
 
 .rank-section .rank .list .more {
   height: 32px;
