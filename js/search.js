@@ -189,7 +189,7 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
 
       const commentResult = results[1];
       localStorage.setItem('commentIf', JSON.stringify(commentResult.data.data));
-      window.location.href = 'song.html';
+      window.open('song.html', '_blank');
     }).catch(error => {
       console.error('请求发生错误:', error);
     });

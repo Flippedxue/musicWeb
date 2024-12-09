@@ -231,6 +231,19 @@
   align-items: center;
 }
 
+.search-result-list ul li .detail a {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.search-result-list ul li .detail a {
+  max-width: 100px;
+}
+
+
 
 .win_box {
   position: fixed;
@@ -312,8 +325,9 @@
 
 .musicList_list .item_info {
   display: flex;
-  flex-grow: 1;
+
   align-items: center;
+  width: 50px;
 }
 
 .musicList_list .item_info .num {
@@ -322,6 +336,7 @@
   display: inline-block;
   margin-right: 10px;
   display: none;
+  
 }
 
 
@@ -329,6 +344,7 @@
   margin: 0;
   font-size: 16px;
   color: #212529;
+
 }
 
 hr {

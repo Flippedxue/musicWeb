@@ -343,11 +343,23 @@ hr {
 }
 
 .musicList-result-list ul li .detail {
+  flex: 6;
   width: 50%;
   display: flex;
-  flex: 6;
   justify-content: space-around;
   align-items: center;
+}
+
+.musicList-result-list ul li .detail a {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.musicList-result-list ul li .detail a {
+  max-width: 100px;
 }
 
 .win_box {
