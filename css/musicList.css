@@ -15,6 +15,39 @@
   border: 1px solid #d3d3d3;
   background-color: #fbfafa;
 }
+.areaLeft .g_title {
+  margin-bottom: 20px; /* 下边距 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 垂直居中 */
+}
+
+.areaLeft .g_title h2 {
+  font-size: 24px;
+  color: #333; /* 文字颜色 */
+}
+
+.areaLeft .g_title button.new-playlist-btn {
+  padding: 8px 8px; /* 增加内边距 */
+  background-color: #4CAF50; /* 按钮背景色 */
+  color: white; /* 按钮文字颜色 */
+  border: none; /* 无边框 */
+  border-radius: 5px; /* 圆角 */
+  cursor: pointer;
+  font-size: 16px; /* 字体大小 */
+  font-weight: bold; /* 加粗 */
+  transition: background-color 0.3s, transform 0.2s; /* 过渡效果 */
+}
+
+.areaLeft .g_title button.new-playlist-btn:hover {
+  background-color: #45a049; /* 悬停效果 */
+  transform: scale(1.05); /* 悬停时放大效果 */
+}
+
+.areaLeft .g_title button.new-playlist-btn:active {
+  transform: scale(0.95); /* 点击时稍微缩小 */
+}
+
 
 .main .areaRight {
   width: 70%;
@@ -322,82 +355,115 @@ hr {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 250px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #1e1d1d;
+  width: 420px; /* 宽度 */
+  height: 300px; /* 高度 */
+  background-color: #f8f9fa; /* 背景色 */
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* 阴影效果 */
   display: none;
+  font-family: Arial, sans-serif; /* 字体 */
 }
 
 .win_box .win_nav {
   width: 100%;
-  height: 40px;
-  background-color: black;
-  border-radius: 5px 5px 0 0;
+  height: 50px; /* 导航高度 */
+  background-color: #343a40; /* 导航背景色 */
+  border-radius: 8px 8px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
-  font-size: 18px;
+  color: #fff;
+  font-size: 20px; /* 字体大小 */
+  padding: 0 15px; /* 内边距 */
 }
 
 .win_box .win_nav p {
-  margin-left: 10px;
+  margin: 0; /* 取消默认的margin */
 }
 
 .win_box .win_nav a {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background-image: url('../images/close.png');
   background-size: cover;
-  margin-right: 10px;
+  cursor: pointer; /* 鼠标光标 */
 }
 
 .win_box .win_input {
-  margin-top: 40px;
-  width: 100%;
-  height: 40px;
-  font-size: 15px;
+  margin-top: 20px; /* 上外边距 */
+  padding: 0 15px; /* 横向内边距 */
+}
+
+.win_box .win_input div {
+  margin-bottom: 5px; /* 每个div的下边距 */
+  font-weight: bold; /* 加粗字体 */
 }
 
 .win_box .win_input .cin {
-  width: 80%;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding-left: 10px;
+  width: calc(100% - 30px); /* 计算宽度 */
+  height: 35px; /* 高度 */
+  border: 1px solid #ccc; /* 边框 */
+  border-radius: 5px; /* 圆角 */
+  padding-left: 10px; /* 左内边距 */
+  font-size: 16px; /* 字体大小 */
+  transition: border-color 0.3s; /* 过渡效果 */
 }
 
-.win_box .win_input span {
-  margin-left: 10px;
+.win_box .win_input .cin:focus {
+  border-color: #007bff; /* 聚焦时改变边框颜色 */
+  outline: none; /* 取消默认轮廓 */
 }
 
 .win_box .win_btn {
-  margin: 40px auto;
-  width: 60%;
-  height: 35px;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin: 30px auto; /* 外边距 */
+  width: 80%; /* 按钮区宽度 */
+  display: flex; /* 使用flex布局 */
+  justify-content: space-around; /* 置中对齐 */
+  align-items: center; /* 垂直对齐 */
+}
 
+.win_box .win_btn .new, .win_box .win_btn .cancel {
+  width: 90px; /* 按钮宽度 */
+  height: 40px; /* 按钮高度 */
+  border: none; /* 取消边框 */
+  border-radius: 5px; /* 圆角 */
+  color: #fff; /* 字体颜色 */
+  cursor: pointer; /* 鼠标光标 */
+  transition: background-color 0.3s; /* 过渡效果 */
 }
 
 .win_box .win_btn .new {
-  width: 80px;
-  height: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #fff;
-  background-color: rgb(64, 120, 224);
-  cursor: pointer;
+  background-color: #007bff; /* 新建按钮颜色 */
 }
 
 .win_box .win_btn .cancel {
-  width: 80px;
-  height: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #dc3545; /* 取消按钮颜色 */
+}
+
+.win_box .win_btn .new:hover {
+  background-color: #0056b3; /* 悬停效果 */
+}
+
+.win_box .win_btn .cancel:hover {
+  background-color: #c82333; /* 悬停效果 */
+}
+.custom-file-input {
+  display: inline-block; /* 使其能够作为按钮显示 */
+  padding: 10px 20px;
+  background-color: #007bff; /* 按钮背景色 */
+  color: white; /* 按钮文字颜色 */
+  border-radius: 5px; /* 按钮圆角 */
+  cursor: pointer; /* 鼠标指针样式 */
+  transition: background-color 0.3s, transform 0.2s; /* 添加过渡效果 */
+  margin-bottom: 20px; /* 增加底部间距 */
+}
+
+.custom-file-input:hover {
+  background-color: #0056b3; /* 鼠标悬停效果 */
+  transform: scale(1.05); /* 悬停时稍微放大 */
+}
+
+.custom-file-input:active {
+  background-color: #004494; /* 鼠标点击效果 */
+  transform: scale(0.95); /* 点击时稍微缩小 */
 }

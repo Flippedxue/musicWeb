@@ -2,92 +2,106 @@
   padding: 40px;
   min-height: 700px;
   box-sizing: border-box;
-  background-color: #fff;
-  border: 1px solid #d3d3d3;
+  background-color: #f9f9f9; /* 改为柔和的背景色 */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 900px; /* 设置最大宽度 */
 }
 
-.main .personalData {
+.personalData {
   display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden; /* 确保不显示超出的内容 */
 }
 
-.main .personalData .areaLeft {
+.areaLeft {
   position: relative;
+  padding: 20px;
+  border-right: 1px solid #ddd; /* 添加分隔线 */
 }
 
-.main .personalData .areaLeft:hover .btm {
-  display: block;
-}
-
-.main .personalData .areaLeft .userHead {
+.userHead {
   width: 194px;
   height: 194px;
-  margin-right: 40px;
+  margin-bottom: 10px; /* 添加下边距 */
 }
 
-.main .personalData .areaLeft .userHead img {
-  width: 188px;
-  height: 188px;
-  padding: 3px;
-  background: #fff;
-  border: 1px solid #d5d5d5;
+.userHead img {
+  width: 100%;
+  height: auto; /* 使图像自适应 */
+  border-radius: 100%; /* 使头像圆形 */
+  border: 2px solid #d7d7d7;
 }
 
-.main .personalData .areaLeft .btm {
+.btm {
   display: none;
   position: absolute;
   left: 4px;
-  bottom: 9px;
-  height: 26px;
-  width: 180px;
-  background: #8e8e8e;
-  opacity: 0.8;
+  bottom: 5px;
+  background: rgba(142, 142, 142, 0.8);
+  border-radius: 4px;
+  width: 225px;
+  text-align: center; /* 居中对齐 */
 }
 
-.main .personalData .areaLeft .btm .upload {
-  position: absolute;
-  left: 4px;
-  bottom: -1px;
-  height: 26px;
-  width: 180px;
-  line-height: 26px;
-  text-align: center;
-  color: #fff;
+.areaLeft:hover .btm {
+  display: block;
 }
 
-.main .personalData .areaLeft .btm .upload:hover {
+.upload {
+  color: #ffffff;
+  line-height: 26px; /* 垂直居中 */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.upload:hover {
   text-decoration: underline;
 }
 
-.main .personalData .areaRight .userInfo {
-  width: 670px;
-  height: 188px;
+.areaRight {
+  padding: 20px; /* 添加内边距 */
+  flex: 1;
 }
 
-.main .personalData .areaRight .userInfo .userName {
+.userInfo {
+  width: 100%; /* 让用户信息区自适应 */
+}
+
+.userName {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 12px;
   margin-bottom: 12px;
   border-bottom: 1px solid #ddd;
 }
 
-.main .personalData .areaRight .userInfo .userName span {
-  margin-top: 3px;
-  font-size: 22px;
-  font-weight: normal;
-  line-height: 30px;
+.userName span {
+  font-size: 24px; /* 增加用户名的字体大小 */
+  font-weight: bold; /* 加粗 */
+  color: #333; /* 让文本颜色更深 */
 }
 
 .edit {
   font-size: 12px;
-  cursor: pointer;
+  color: #0c0f0f; /* 设置编辑按钮颜色 */
+  text-decoration: none;
 }
 
-.main .personalData .areaRight .userInfo .userEmail,
-.main .personalData .areaRight .userInfo .userArea,
-.main .personalData .areaRight .userInfo .userBirth,
-.main .personalData .areaRight .userInfo .userGender {
-  font-size: 12px;
-  line-height: 21px;
-  margin-top: 5px;
+.edit:hover {
+  text-decoration: underline; /* 悬停效果 */
+}
+
+.userEmail,
+.userArea,
+.userBirth,
+.userGender {
+  font-size: 14px; /* 增大字体 */
+  line-height: 24px; /* 增加行高 */
+  color: #666; /* 更柔和的文本颜色 */
+  margin-top: 10px; /* 调整间距 */
 }

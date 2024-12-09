@@ -33,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
                               <a class="musicPic" href="#">${item.musicPic}</a>
                               <div class="operation">
                                   <a class="btn add" href="#" title="添加到播放列表"></a>
-                                  <a class="btn favor" href="#" title="收藏"></a>
-                                  <a class="btn share" href="#" title="分享"></a>
                                   <a class="btn download" href="#" title="下载"></a>
                                   <a class="btn delete" href="#" title="删除"></a>
                               </div>
@@ -140,6 +138,35 @@ document.querySelector('.myMusic-result-list ul').addEventListener('click', func
       stateSet.click();
     }, { once: true });
   }
+  if (e.target.classList.contains('title')) {
+    e.preventDefault();
+
+    const musicId = e.target.closest('.item1').querySelector('.num').innerText;
+
+    Promise.all([
+        axios({
+            url: 'http://localhost:8080/music/getMusicById',
+            method: 'get',
+            params: { musicId }
+        }),
+        axios({
+            url: 'http://localhost:8080/comment/getComments',
+            method: 'get',
+            params: { musicId }
+        })
+    ]).then(results => {
+
+        const musicResult = results[0];
+        localStorage.setItem('songIf', JSON.stringify(musicResult.data.data));
+
+
+        const commentResult = results[1];
+        localStorage.setItem('commentIf', JSON.stringify(commentResult.data.data));
+        window.location.href = 'song.html';
+    }).catch(error => {
+        console.error('请求发生错误:', error);
+    });
+}
   if (e.target.classList.contains('add')) {
     e.preventDefault()
 
@@ -175,7 +202,7 @@ document.querySelector('.myMusic-result-list ul').addEventListener('click', func
       headers: { 'Authorization': token }
     }).then(result => {
       localStorage.setItem('myMusicInfo', JSON.stringify(result.data.data))
-      document.querySelector('.top .list li:nth-child(5) a').click();
+      document.querySelector('.top .list li:nth-child(3) a').click();
 
     })
   }

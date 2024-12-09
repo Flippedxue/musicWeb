@@ -2,28 +2,91 @@
   padding: 40px;
   min-height: 700px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #f9f9f9; /* 使用柔和背景色 */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #d3d3d3;
+  margin: 20px auto;
+  max-width: 850px; /* 限制最大宽度 */
 }
 
-.main .container {
+.container {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin: 20px 0;
 }
 
-.main .container .left,
-.main .container.right {
+.left,
+.right {
   width: 45%;
 }
 
-.main .container .right.previewArea {
+.previewArea {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.main .container .left .canvas {
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
+.canvas {
+  border: 2px solid #ddd; /* 边框样式 */
+  border-radius: 5px; /* 圆角 */
+  margin-bottom: 15px; /* 增加下边距 */
+  background-color: #fff; /* 背景色 */
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.save {
+  background-color: #4CAF50; /* 保存按钮的背景色 */
+  color: white;
+}
+
+.save:hover {
+  background-color: #45a049; /* 悬停效果 */
+}
+
+.cancel {
+  background-color: #f44336; /* 取消按钮的背景色 */
+  color: white;
+}
+
+.cancel:hover {
+  background-color: #e53935; /* 悬停效果 */
+}
+
+h3 {
+  color: #333; /* 标题颜色 */
+  margin-bottom: 15px; /* 增加下边距 */
+}
+.custom-file-input {
+  display: inline-block; /* 使其能够作为按钮显示 */
+  padding: 10px 20px;
+  background-color: #007bff; /* 按钮背景色 */
+  color: white; /* 按钮文字颜色 */
+  border-radius: 5px; /* 按钮圆角 */
+  cursor: pointer; /* 鼠标指针样式 */
+  transition: background-color 0.3s, transform 0.2s; /* 添加过渡效果 */
+  margin-bottom: 20px; /* 增加底部间距 */
+}
+
+.custom-file-input:hover {
+  background-color: #0056b3; /* 鼠标悬停效果 */
+  transform: scale(1.05); /* 悬停时稍微放大 */
+}
+
+.custom-file-input:active {
+  background-color: #004494; /* 鼠标点击效果 */
+  transform: scale(0.95); /* 点击时稍微缩小 */
 }

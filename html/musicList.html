@@ -1,125 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歌单</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/musicList.css">
-    <link rel="stylesheet" href="../音乐播放器/icon.css">
-    <link rel="stylesheet" href="../音乐播放器/css.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>歌单</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/musicList.css">
+  <link rel="stylesheet" href="../音乐播放器/icon.css">
+  <link rel="stylesheet" href="../音乐播放器/css.css">
 </head>
+
 <body>
-    <div class="top">
-        <div class="topbar wrapper_01">
-          <div class="bar-left">
-            <h1 class="logo">
-              <a href="#">网易云音乐</a>
-            </h1>
-            <ul class="list">
-              <li><a href="index.html" class="item">发现音乐</a></li>
-              <li><a href="#" class="item active">歌单</a></li>
-              <li><a href="#" class="item">我的音乐</a></li>
+  <div class="top">
+    <div class="topbar wrapper_01">
+      <div class="bar-left">
+        <h1 class="logo">
+          <a href="#">网易云音乐</a>
+        </h1>
+        <ul class="list">
+          <li><a href="index.html" class="item">发现音乐</a></li>
+          <li><a href="#" class="item active">歌单</a></li>
+          <li><a href="#" class="item">我的音乐</a></li>
+        </ul>
+      </div>
+      <div class="bar-right">
+        <div class="search">
+          <input type="text" placeholder="搜索音乐">
+          <div class="suggestions"></div>
+        </div>
+        <div class="anthor">
+          <a href="#">气泡音乐</a>
+        </div>
+        <div class="login">
+          <a class="loginOruser" href="login.html">登录</a>
+          <div class="dropdown">
+            <ul>
+              <li><a href="homepage.html">我的主页</a></li>
+              <li><a href="#" class="logout">退出</a></li>
             </ul>
-          </div>
-          <div class="bar-right">
-            <div class="search">
-              <input type="text" placeholder="搜索音乐">
-              <div class="suggestions"></div>
-            </div>  
-            <div class="anthor">
-              <a href="#">气泡音乐</a>
-            </div>
-            <div class="login">
-              <a class="loginOruser" href="login.html">登录</a>
-              <div class="dropdown">
-                <ul>
-                  <li><a href="homepage.html">我的主页</a></li>
-                  <li><a href="#" class="logout">退出</a></li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    <div class="main wrapper_02">
-        <div class="areaLeft">
-            <div class="g_title">
-                <h2>创建的歌单</h2>
-                <button>+&nbsp;新建</button>
+    </div>
+  </div>
+  <div class="main wrapper_02">
+    <div class="areaLeft">
+      <div class="g_title">
+        <h2>创建的歌单</h2>
+        <button class="new-playlist-btn">+&nbsp;新建</button>
+    </div>    
+      <hr>
+      <div class="musicList_list">
+        <ul>
+          <li class="item_other">
+            <div class="item_pic">
+              <img src="../images/valorant.png" alt="">
             </div>
-            <hr>
-            <div class="musicList_list">
-                <ul>
-                    <li class="item_other">
-                        <div class="item_pic">
-                            <img src="../images/valorant.png" alt="">
-                        </div>
-                        <div class="item_info">
-                            <span class="num">1</span>
-                            <div class="pic"></div>
-                            <h3>Valorant</h3>
-                        </div>
-                        <div class="item_delete">
-                            <a class="btn delete" href="#" title="删除"></a>
-                        </div>
-                    </li>
-                </ul>
+            <div class="item_info">
+              <span class="num">1</span>
+              <div class="pic"></div>
+              <h3>Valorant</h3>
             </div>
+            <div class="item_delete">
+              <a class="btn delete" href="#" title="删除"></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="areaRight">
+      <div class="outline">
+        <div class="avatar">
+          <img src="">
         </div>
-        <div class="areaRight">
-            <div class="outline">
-                <div class="avatar">
-                  <img src="">
-                </div>
-                <h1 class="avatar_title">
-                  <span class="num"></span>
-                  <span class="name "></span>
-                </h1>
-            </div>
-            <div class="g_tip">
-                <h2>歌曲列表</h2>
-            </div>
-            <div class="xian"></div>
-            <div class="musicList-result">
-                <div class="musicList-result-title">
-                  <ul>
-                    <li class="song1">歌曲标题</li>
-                    <li class="singer1">歌手</li>
-                    <li class="album1">专辑</li>
-                    <li class="time1">时长</li>
-                  </ul>
-                </div>
-                <div class="musicList-result-list">
-                  <ul>
-                    <li class="item">
-                      <div class="name">
-                        <a class="btn1 play1" href="#" title="播放"></a>
-                        <a class="num" href="#">0</a>
-                        <a class="url" href="#"></a>
-                        <a class="musicPic" href="#"></a>
-                        <a class="title" href="#">交换余生</a>
-                        <div class="operation">
-                          <a class="btn add" href="#" title="添加到播放列表"></a>
-                          <a class="btn favor" href="#" title="收藏"></a>
-                          <a class="btn share" href="#" title="分享"></a>
-                          <a class="btn download" href="#" title="下载"></a>
-                          <a class="btn delete" href="#" title="删除"></a>
-                        </div>
-                      </div>
-                      <div class="detail">
-                        <a href="#">林俊杰</a>
-                        <a href="#">《交换余生》</a>
-                        <a href="#">04:36</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+        <h1 class="avatar_title">
+          <span class="num"></span>
+          <span class="name "></span>
+        </h1>
+      </div>
+      <div class="g_tip">
+        <h2>歌曲列表</h2>
+      </div>
+      <div class="xian"></div>
+      <div class="musicList-result">
+        <div class="musicList-result-title">
+          <ul>
+            <li class="song1">歌曲标题</li>
+            <li class="singer1">歌手</li>
+            <li class="album1">专辑</li>
+            <li class="time1">时长</li>
+          </ul>
         </div>
+        <div class="musicList-result-list">
+          <ul>
+            <li class="item">
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="win_box">
@@ -128,16 +110,63 @@
       <a class="close" href="#" title="关闭"></a>
     </div>
     <div class="win_input">
-      <span>歌单名：</span>
-      <input class="cin" type="text" >
+      <div>歌单名：</div>
+      <input class="cin" type="text">
+      <div>歌单封面：</div>
+      <input type="file" class="fileInput" accept="image/*" id="fileInput" style="display: none;">
+      <label for="fileInput" class="custom-file-input">选择文件</label>
     </div>
     <div class="win_btn">
       <button class="new">新建</button>
       <button class="cancel">取消</button>
     </div>
   </div>
-      <script src="../js/top.js"></script>
-      <script src="../js/musicList.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <audio src=""></audio>
+  <!-- 音乐播放器 -->
+  <div class="play_box">
+    <!-- 音乐播放器背景 -->
+    <div class="play_bc">
+      <img src="" alt="">
+    </div>
+    <!-- 播放组件 -->
+    <div class="state">
+      <img class="head" src="" alt="">
+      <div class="state_set iconfont icon-bofang"></div>
+    </div>
+    <!-- 进度条组件 -->
+    <div class="progress">
+      <div class="last iconfont icon-shangyishou"></div>
+      <div class="next iconfont icon-xiayishou"></div>
+      <div class="line">
+        <div class="pros">
+          <div class="Anchor"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 时间组件 -->
+    <div class="time_show">00:00 / 00:00</div>
+    <!-- 音量组件 -->
+    <div class="tool">
+      <div class="volume iconfont icon-volumeMiddle">
+        <div class="volume_range">
+          <input type="range" class="range">
+        </div>
+      </div>
+      <div class="list iconfont icon-list">
+        <div class="list_range">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 列表组件 -->
+
+    <!-- 音乐信息组件 -->
+    <div class="music_info"></div>
+  </div>
+  <script src="../js/top.js"></script>
+  <script src="../js/musicList.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+
 </html>

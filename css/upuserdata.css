@@ -4,69 +4,80 @@
   box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
 }
 
 .main .title h3 {
-  font-size: 24px;
-  font-weight: normal;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .main .content {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .main .content .item {
   display: flex;
-  padding-left: 5px;
-  margin-bottom: 10px;
-  width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  align-items: center;
 }
 
-.main .content .item:last-child {
-  margin-top: 20px;
-  height: 30px;
-}
-
-.main .content .item button {
-  width: 50px;
+.main .content .item:hover {
+  background-color: #f0f0f0;
 }
 
 .main .content .item label {
-  line-height: 29px;
+  color: #555;
+  flex: 0 0 120px; /* 固定标签宽度 */
+  margin-right: 10px;
 }
 
-.main .content input[id='nickname'] {
+.main .content .item input[type="text"],
+.main .content .item input[type="email"] {
   flex: 1;
-  height: 29px;
-  margin-left: 5px;
-  border: 1px solid #cdcdcd;
-  border-radius: 2px;
-  line-height: 19px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s;
 }
 
-.main .content input[id='birthday'] {
-  flex: 1;
-  height: 29px;
-  margin-left: 5px;
-  border: 1px solid #cdcdcd;
-  border-radius: 2px;
-  line-height: 19px;
+.main .content .item input[type="text"]:focus,
+.main .content .item input[type="email"]:focus {
+  border-color: #61dafb;
+  outline: none;
 }
 
-.main .content input[id='email'] {
-  flex: 1;
-  height: 29px;
-  margin-left: 5px;
-  border: 1px solid #cdcdcd;
-  border-radius: 2px;
-  line-height: 19px;
+.gender-options {
+  display: flex;
+  align-items: center;
 }
 
-.main .content input[id='area'] {
-  flex: 1;
-  height: 29px;
-  margin-left: 5px;
-  border: 1px solid #cdcdcd;
-  border-radius: 2px;
-  line-height: 19px;
+.gender-options input {
+  margin-right: 5px;
+}
+
+.main .content .item button {
+  margin-left: 15px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #61dafb;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.main .content .item button:hover {
+  background-color: #21a1f1;
 }

@@ -104,7 +104,6 @@ searchBtn.addEventListener('click', function (e) {
                                   <a class="btn add" href="#" title="添加到播放列表"></a>
                                   <a class="btn favor" href="#" title="收藏"></a>
                                   <a class="btn toMusicList" href="#" title="添加到歌单"></a>
-                                  <a class="btn share" href="#" title="分享"></a>
                                   <a class="btn download" href="#" title="下载"></a>
                               </div>
                           </div>
@@ -173,29 +172,29 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
     const musicId = e.target.closest('.item1').querySelector('.num').innerText;
 
     Promise.all([
-        axios({
-            url: 'http://localhost:8080/music/getMusicById',
-            method: 'get',
-            params: { musicId }
-        }),
-        axios({
-            url: 'http://localhost:8080/comment/getComments',
-            method: 'get',
-            params: { musicId }
-        })
+      axios({
+        url: 'http://localhost:8080/music/getMusicById',
+        method: 'get',
+        params: { musicId }
+      }),
+      axios({
+        url: 'http://localhost:8080/comment/getComments',
+        method: 'get',
+        params: { musicId }
+      })
     ]).then(results => {
 
-        const musicResult = results[0];
-        localStorage.setItem('songIf', JSON.stringify(musicResult.data.data));
+      const musicResult = results[0];
+      localStorage.setItem('songIf', JSON.stringify(musicResult.data.data));
 
 
-        const commentResult = results[1];
-        localStorage.setItem('commentIf', JSON.stringify(commentResult.data.data));
-        window.location.href = 'song.html';
+      const commentResult = results[1];
+      localStorage.setItem('commentIf', JSON.stringify(commentResult.data.data));
+      window.location.href = 'song.html';
     }).catch(error => {
-        console.error('请求发生错误:', error);
+      console.error('请求发生错误:', error);
     });
-}
+  }
 
   // 点击添加到播放列表按钮
   if (e.target.classList.contains('add')) {
@@ -248,7 +247,7 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
     }).then(result => {
       const musicListObj = result.data.data;
       if (musicListObj) {
-        let list = musicListObj;        
+        let list = musicListObj;
         let theLi = list.map(item => `<li class="item_other">
               <div class="item_pic">
                   <img src="${item.musicListPic}" alt="">
@@ -258,21 +257,21 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
                   <h3>${item.musicListName}</h3>
               </div>
           </li>`).join('');
-          
+
         document.querySelector('.win_box .musicList_list ul').innerHTML = theLi;
       }//--------------------------------------------------------
       //点击歌曲要添加歌单的列表
       document.querySelector('.win_box .musicList_list ul').addEventListener('click', function (e) {
         e.preventDefault();
         console.log(e.target.querySelector('.num').innerText);
-        
+
         if (e.target.classList.contains('item_other')) {
           axios({
             url: 'http://localhost:8080/musicList/addMusic',
             method: 'post',
             data: {
               musicId,
-              musicListId: parseInt(e.target.querySelector('.num').innerText)//-----------------------------------------------
+              musicListId: parseInt(e.target.querySelector('.num').innerText)
             },
             headers: { 'Authorization': token }
           }).then(result => {
@@ -292,10 +291,23 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
         win_box.style.display = 'none';
       })
     })
-
-
   }
+  // 点击下载按钮
+  if (e.target.classList.contains('download')) {
+    e.preventDefault();
+    const songUrl = e.target.closest('.item1').querySelector('.url').innerText; // 获取歌曲的 URL
+    const songTitle = e.target.closest('.item1').querySelector('.title').innerText; // 获取歌曲的标题
 
+    // 创建下载链接
+    const link = document.createElement('a');
+    link.href = songUrl; // 设置链接地址为 MP3 的 URL
+    link.download = songTitle + ".mp3"; // 设置下载文件名
+
+    // 触发下载
+    document.body.appendChild(link); // 将链接添加到文档
+    link.click(); // 模拟点击
+    document.body.removeChild(link); // 下载后移除链接
+  }
 
 });
 
