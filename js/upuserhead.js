@@ -14,7 +14,7 @@ class ImgCrop {
     this.imgObj = null;
     this.sourceWidth = 0;
     this.sourceHeight = 0;
-    this.scale = 1; // 添加缩放比例记录
+    this.scale = 1;
     this.width = 50;
     this.height = 50;
     this.x = 0;
@@ -41,8 +41,8 @@ class ImgCrop {
           // 动态获取最大宽高并计算缩放比例
           const containerWidth = document.querySelector('.main .container').offsetWidth * 0.9;
           const containerHeight = window.innerHeight * 0.7;
-          const maxWidth = Math.min(500, containerWidth); // 限制最大值
-          const maxHeight = Math.min(500, containerHeight); // 限制最大值
+          const maxWidth = Math.min(500, containerWidth);
+          const maxHeight = Math.min(500, containerHeight);
           const widthRatio = maxWidth / this.imgObj.width;
           const heightRatio = maxHeight / this.imgObj.height;
           this.scale = Math.min(widthRatio, heightRatio, 1);

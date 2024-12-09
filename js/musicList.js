@@ -19,7 +19,7 @@ let playBox = document.querySelector(".play_box");
 
 const musicListInfo = localStorage.getItem('musicListInfo');
 let musicListId = 0;
-//const btn_musicList = document.querySelector('.top .list li:nth-child(3) a');
+
 document.addEventListener('DOMContentLoaded', function () {
   //渲染歌单列表
   if (musicListInfo) {
@@ -38,11 +38,23 @@ document.addEventListener('DOMContentLoaded', function () {
                             <h3>${item.musicListName}</h3>
                         </div>
                         <div class="item_delete">
-                          <a class="btn delete" href="#" title="删除"></a>
+                          <a class="btn delete" href="#" title="删除" data-id="${item.id}"></a>
                         </div>
                     </li>`).join('');
       document.querySelector('.areaLeft .musicList_list ul').innerHTML = theLi;
+
+      document.querySelectorAll('.item_delete .delete').forEach(deleteBtn => {
+        deleteBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const musicListId = this.getAttribute('data-id');
+
+          if (confirm('确定要删除这张歌单吗?')) {
+            deleteMusicList(musicListId);
+          }
+        });
+      });
     }
+
   }
   musicPlaySet();
   musicMove();
@@ -97,8 +109,8 @@ musicList_li.addEventListener('click', function (e) {
                       <div class="name">
                         <a class="btn1 play1" href="#" title="播放"></a>
                         <a class="num" href="#">${item.id}</a>
-                        <a class="url" href="#"></a>
-                        <a class="musicPic" href="#"></a>
+                        <a class="url" href="#">${item.url}</a>
+                        <a class="musicPic" href="#">${item.musicPic}</a>
                         <a class="title" href="#">${item.musicName}</a>
                         <div class="operation">
                           <a class="btn add" href="#" title="添加到播放列表"></a>
@@ -149,9 +161,9 @@ musicList_li.addEventListener('click', function (e) {
     if (e.target.classList.contains('play1')) {
       e.preventDefault();
 
-      songSrc = e.target.closest('.item1').querySelector('.url').innerText;
-      songImg = e.target.closest('.item1').querySelector('.musicPic').innerText;
-      songTitle = e.target.closest('.item1').querySelector('.title').innerText;
+      songSrc = e.target.closest('.item').querySelector('.url').innerText;
+      songImg = e.target.closest('.item').querySelector('.musicPic').innerText;
+      songTitle = e.target.closest('.item').querySelector('.title').innerText;
 
       musicInfoShow.innerText = songTitle;
       musicOBJ.src = songSrc;
@@ -168,10 +180,11 @@ musicList_li.addEventListener('click', function (e) {
         stateSet.click();
       }, { once: true });
     }
+    //点击歌曲名
     if (e.target.classList.contains('title')) {
       e.preventDefault();
 
-      const musicId = e.target.closest('.item1').querySelector('.num').innerText;
+      const musicId = e.target.closest('.item').querySelector('.num').innerText;
 
       Promise.all([
         axios({
@@ -201,8 +214,8 @@ musicList_li.addEventListener('click', function (e) {
     if (e.target.classList.contains('add')) {
       e.preventDefault()
 
-      songTitle = e.target.closest('.item1').querySelector('.title').innerText;
-      songId = e.target.closest('.item1').querySelector('.num').innerText;
+      songTitle = e.target.closest('.item').querySelector('.title').innerText;
+      songId = e.target.closest('.item').querySelector('.num').innerText;
       if (!musicList.includes(songTitle)) {
         musicList.push(songTitle);
       } else {
@@ -270,11 +283,26 @@ musicList_li.addEventListener('click', function (e) {
         });
       }
     }
+    if (e.target.classList.contains('download')) {
+      e.preventDefault();
+      const songUrl = e.target.closest('.item1').querySelector('.url').innerText;
+      const songTitle = e.target.closest('.item1').querySelector('.title').innerText;
+
+      // 创建下载链接
+      const link = document.createElement('a');
+      link.href = songUrl;
+      link.download = songTitle + ".mp3";
+
+      // 触发下载
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
 
   });
 
-
 });
+
 //active
 let num = 0;
 const musicList_Allli = document.querySelectorAll('.musicList_list ul li');
@@ -287,70 +315,139 @@ for (let i = 0; i < musicList_Allli.length; i++) {
     num = i;
   });
 }
-
+const newbd = document.querySelector('.new-playlist-btn')
+newbd.addEventListener('click', function () {
+  document.querySelector('.win_box').style.display = 'block';
+})
 //创建歌单
-const btn_addMusicList = document.querySelector('.areaLeft .g_title button');
-
-const win_box = document.querySelector('.win_box');
-btn_addMusicList.addEventListener('click', function (e) {
-  e.preventDefault();
-  win_box.style.display = 'block';
-
-
+const fileInput = document.getElementById('fileInput');
+const musicListNameInput = document.querySelector('.cin');
+const newButton = document.querySelector('.win_box .win_btn .new');
+const cancelButton = document.querySelector('.win_box .win_btn .cancel');
+const quxiao = document.querySelector('.win_box .win_nav .close');
+// 上传封面文件并返回 URL
+function uploadCover() {
   const token = localStorage.getItem('token');
-  const newCreate = document.querySelector('.win_box .win_btn .new');
-  newCreate.addEventListener('click', function (e) {
-    e.preventDefault();
-    const musicListName = document.querySelector('.win_box .win_input .cin').value.trim();
-    const fileInput = document.querySelector('.win_input .file-input');
-    const file = fileInput.files[0];
+  const file = fileInput.files[0];
+  if (!file) {
+    alert('请先选择歌单封面文件。');
+    return Promise.resolve(null);
+  }
 
+  const formData = new FormData();
+  formData.append('file', file);
+
+  return axios({
+    method: 'post',
+    url: 'http://localhost:8080/musicList/uploadMusicListCover',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': token
+
+    }
+  }).then(res => {
+    if (res.data.code === 0) {
+      return res.data.data;
+    } else {
+      alert(res.data.message || '上传失败！');
+      return null;
+    }
+  }).catch(err => {
+    console.error('上传封面时出错:', err);
+    alert('上传封面时出错，请稍后重试。');
+    return null;
+  });
+}
+
+// 创建新的歌单
+function createMusicList() {
+  const token = localStorage.getItem('token');
+  uploadCover().then(coverUrl => {
+    if (!coverUrl) return;
+
+    const musicListName = musicListNameInput.value.trim();
     if (!musicListName) {
-      alert('请填写歌单名称');
+      alert('请填写歌单名称。');
       return;
     }
 
-    if (!file) {
-      alert('请上传歌单封面图片');
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = function (event) {
-      const musicListPic = event.target.result; // Base64 字符串
-      console.log(musicListPic);
+    const requestData = {
+      musicListName: musicListName,
+      musicListPic: coverUrl
+    };
 
-      if (musicListName) {
+    return axios({
+      method: 'post',
+      url: 'http://localhost:8080/musicList/create',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      },
+      data: JSON.stringify(requestData)
+    }).then(res => {
+      if (res.data.code === 0) {
+        alert('歌单创建成功！');
+        document.querySelector('.win_box').style.display = 'none';
         axios({
-          url: 'http://localhost:8080/musicList/create',
-          method: 'post',
-          data: {
-            musicListName,
-            musicListPic
-          },
+          url: 'http://localhost:8080/musicList/getUserMusicLists',
+          method: 'get',
           headers: { 'Authorization': token }
         }).then(result => {
-          console.log(result);
-          win_box.style.display = 'none';
-          const btn_musicList = document.querySelector('.top .list li:nth-child(2) a');
-          btn_musicList.click();
-        });
+          localStorage.setItem('musicListInfo', JSON.stringify(result.data.data))
+          window.location.href = 'musicList.html'
+        })
+      } else {
+        alert(res.data.message || '创建歌单失败！');
       }
-    };
-    reader.readAsDataURL(file); // 读取文件并转换为 Base64
+    }).catch(err => {
+      console.error('创建歌单时出错:', err);
+      alert('创建歌单时出错，请稍后重试。');
+    });
   });
-
-  const cancel = document.querySelector('.win_box .win_btn .cancel');
-
-  cancel.addEventListener('click', function (e) {
-    e.preventDefault();
-    win_box.style.display = 'none';
+}
+// 删除歌单的函数
+function deleteMusicList(musicListId) {
+  axios({
+    url: `http://localhost:8080/musicList/deleteMusicList`,
+    method: 'POST',
+    params: { musicListId: musicListId },
+    headers: { 'Authorization': token }
   })
-  const quxiao = document.querySelector('.win_box .win_nav .close');
-  quxiao.addEventListener('click', function (e) {
-    e.preventDefault();
-    win_box.style.display = 'none';
-  })
+    .then(res => {
+      const data = res.data;
+      if (data.code === 0) {
+        alert(data.message);
+        axios({
+          url: 'http://localhost:8080/musicList/getUserMusicLists',
+          method: 'get',
+          headers: { 'Authorization': token }
+        }).then(result => {
+          localStorage.setItem('musicListInfo', JSON.stringify(result.data.data))
+          window.location.href = 'musicList.html'
+        })
+      } else {
+        alert(data.message || '删除失败');
+      }
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      alert('删除时出错，请稍后再试');
+    });
+}
+
+
+// 绑定按钮点击事件
+newButton.addEventListener('click', createMusicList);
+cancelButton.addEventListener('click', function () {
+  musicListNameInput.value = '';
+  fileInput.value = '';
 });
+
+const close = document.querySelector('.close');
+close.addEventListener('click', function () {
+  document.querySelector('.win_box').style.display = 'none';
+})
 
 // 音乐的开始和暂停方法
 function musicPlaySet() {

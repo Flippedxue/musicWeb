@@ -16,36 +16,36 @@
   background-color: #fbfafa;
 }
 .areaLeft .g_title {
-  margin-bottom: 20px; /* 下边距 */
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* 垂直居中 */
+  align-items: center;
 }
 
 .areaLeft .g_title h2 {
   font-size: 24px;
-  color: #333; /* 文字颜色 */
+  color: #333;
 }
 
 .areaLeft .g_title button.new-playlist-btn {
-  padding: 8px 8px; /* 增加内边距 */
-  background-color: #4CAF50; /* 按钮背景色 */
-  color: white; /* 按钮文字颜色 */
-  border: none; /* 无边框 */
-  border-radius: 5px; /* 圆角 */
+  padding: 8px 8px;
+  background-color: #4CAF50;
+  color: white; 
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px; /* 字体大小 */
-  font-weight: bold; /* 加粗 */
-  transition: background-color 0.3s, transform 0.2s; /* 过渡效果 */
+  font-size: 16px; 
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .areaLeft .g_title button.new-playlist-btn:hover {
-  background-color: #45a049; /* 悬停效果 */
-  transform: scale(1.05); /* 悬停时放大效果 */
+  background-color: #45a049;
+  transform: scale(1.05);
 }
 
 .areaLeft .g_title button.new-playlist-btn:active {
-  transform: scale(0.95); /* 点击时稍微缩小 */
+  transform: scale(0.95);
 }
 
 
@@ -148,7 +148,7 @@ hr {
 }
 
 .areaRight .outline .avatar img {
-  width: 220px;
+  width: 180px;
   height: 180px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -355,30 +355,30 @@ hr {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 420px; /* 宽度 */
-  height: 300px; /* 高度 */
-  background-color: #f8f9fa; /* 背景色 */
+  width: 420px;
+  height: 300px;
+  background-color: #f8f9fa;
   border-radius: 8px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   display: none;
-  font-family: Arial, sans-serif; /* 字体 */
+  font-family: Arial, sans-serif;
 }
 
 .win_box .win_nav {
   width: 100%;
-  height: 50px; /* 导航高度 */
-  background-color: #343a40; /* 导航背景色 */
+  height: 50px;
+  background-color: #343a40;
   border-radius: 8px 8px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  font-size: 20px; /* 字体大小 */
-  padding: 0 15px; /* 内边距 */
+  font-size: 20px;
+  padding: 0 15px;
 }
 
 .win_box .win_nav p {
-  margin: 0; /* 取消默认的margin */
+  margin: 0;
 }
 
 .win_box .win_nav a {
@@ -386,84 +386,84 @@ hr {
   height: 20px;
   background-image: url('../images/close.png');
   background-size: cover;
-  cursor: pointer; /* 鼠标光标 */
+  cursor: pointer;
 }
 
 .win_box .win_input {
-  margin-top: 20px; /* 上外边距 */
-  padding: 0 15px; /* 横向内边距 */
+  margin-top: 20px;
+  padding: 0 15px;
 }
 
 .win_box .win_input div {
-  margin-bottom: 5px; /* 每个div的下边距 */
-  font-weight: bold; /* 加粗字体 */
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .win_box .win_input .cin {
-  width: calc(100% - 30px); /* 计算宽度 */
-  height: 35px; /* 高度 */
-  border: 1px solid #ccc; /* 边框 */
-  border-radius: 5px; /* 圆角 */
-  padding-left: 10px; /* 左内边距 */
-  font-size: 16px; /* 字体大小 */
-  transition: border-color 0.3s; /* 过渡效果 */
+  width: calc(100% - 30px);
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s;
 }
 
 .win_box .win_input .cin:focus {
-  border-color: #007bff; /* 聚焦时改变边框颜色 */
-  outline: none; /* 取消默认轮廓 */
+  border-color: #007bff;
+  outline: none;
 }
 
 .win_box .win_btn {
-  margin: 30px auto; /* 外边距 */
-  width: 80%; /* 按钮区宽度 */
-  display: flex; /* 使用flex布局 */
-  justify-content: space-around; /* 置中对齐 */
-  align-items: center; /* 垂直对齐 */
+  margin: 30px auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .win_box .win_btn .new, .win_box .win_btn .cancel {
-  width: 90px; /* 按钮宽度 */
-  height: 40px; /* 按钮高度 */
-  border: none; /* 取消边框 */
-  border-radius: 5px; /* 圆角 */
-  color: #fff; /* 字体颜色 */
-  cursor: pointer; /* 鼠标光标 */
-  transition: background-color 0.3s; /* 过渡效果 */
+  width: 90px;
+  height: 40px;
+  border: none; 
+  border-radius: 5px;
+  color: #fff; 
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .win_box .win_btn .new {
-  background-color: #007bff; /* 新建按钮颜色 */
+  background-color: #007bff;
 }
 
 .win_box .win_btn .cancel {
-  background-color: #dc3545; /* 取消按钮颜色 */
+  background-color: #dc3545;
 }
 
 .win_box .win_btn .new:hover {
-  background-color: #0056b3; /* 悬停效果 */
+  background-color: #0056b3;
 }
 
 .win_box .win_btn .cancel:hover {
-  background-color: #c82333; /* 悬停效果 */
+  background-color: #c82333;
 }
 .custom-file-input {
-  display: inline-block; /* 使其能够作为按钮显示 */
+  display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff; /* 按钮背景色 */
-  color: white; /* 按钮文字颜色 */
-  border-radius: 5px; /* 按钮圆角 */
-  cursor: pointer; /* 鼠标指针样式 */
-  transition: background-color 0.3s, transform 0.2s; /* 添加过渡效果 */
-  margin-bottom: 20px; /* 增加底部间距 */
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 20px;
 }
 
 .custom-file-input:hover {
-  background-color: #0056b3; /* 鼠标悬停效果 */
-  transform: scale(1.05); /* 悬停时稍微放大 */
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .custom-file-input:active {
-  background-color: #004494; /* 鼠标点击效果 */
-  transform: scale(0.95); /* 点击时稍微缩小 */
+  background-color: #004494;
+  transform: scale(0.95);
 }

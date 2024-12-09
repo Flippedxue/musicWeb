@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                   <a class="btn add" href="#" title="添加到播放列表"></a>
                                   <a class="btn favor" href="#" title="收藏"></a>
                                   <a class="btn toMusicList" href="#" title="添加到歌单"></a>
-                                  <a class="btn share" href="#" title="分享"></a>
                                   <a class="btn download" href="#" title="下载"></a>
                               </div>
                           </div>
@@ -66,7 +65,7 @@ let f2 = true;
 let i1 = 0;
 let nowtime = 0;
 let currtime = 0;
-let currentIndex = 0; // 用于存储当前播放的歌曲索引
+let currentIndex = 0;
 let x = 0;
 let musicList = [];
 let musicidList = [];
@@ -134,8 +133,7 @@ function alertFn(msg, isSuccess) {
     myAlert.color = 'red';
     myAlert.style.backgroundColor = '#541010';
   }
-  //myAlert.classList.add('show');
-  // 过两秒提示框消失
+
   setTimeout(() => {
     myAlert.classList.remove('show');
   }, 2000);
@@ -166,6 +164,7 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
       stateSet.click();
     }, { once: true });
   }
+  // 点击歌曲标题
   if (e.target.classList.contains('title')) {
     e.preventDefault();
 
@@ -232,7 +231,7 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
       alertFn('收藏失败', false);
     });
   }
-  //-------------
+
   //添加音乐到歌单
   const win_box = document.querySelector('.win_box');
   if (e.target.classList.contains('toMusicList')) {
@@ -259,7 +258,7 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
           </li>`).join('');
 
         document.querySelector('.win_box .musicList_list ul').innerHTML = theLi;
-      }//--------------------------------------------------------
+      }
       //点击歌曲要添加歌单的列表
       document.querySelector('.win_box .musicList_list ul').addEventListener('click', function (e) {
         e.preventDefault();
@@ -295,18 +294,18 @@ document.querySelector('.search-result-list ul').addEventListener('click', funct
   // 点击下载按钮
   if (e.target.classList.contains('download')) {
     e.preventDefault();
-    const songUrl = e.target.closest('.item1').querySelector('.url').innerText; // 获取歌曲的 URL
-    const songTitle = e.target.closest('.item1').querySelector('.title').innerText; // 获取歌曲的标题
+    const songUrl = e.target.closest('.item1').querySelector('.url').innerText;
+    const songTitle = e.target.closest('.item1').querySelector('.title').innerText;
 
     // 创建下载链接
     const link = document.createElement('a');
-    link.href = songUrl; // 设置链接地址为 MP3 的 URL
-    link.download = songTitle + ".mp3"; // 设置下载文件名
+    link.href = songUrl;
+    link.download = songTitle + ".mp3";
 
     // 触发下载
-    document.body.appendChild(link); // 将链接添加到文档
-    link.click(); // 模拟点击
-    document.body.removeChild(link); // 下载后移除链接
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 
 });

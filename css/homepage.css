@@ -2,11 +2,11 @@
   padding: 40px;
   min-height: 700px;
   box-sizing: border-box;
-  background-color: #f9f9f9; /* 改为柔和的背景色 */
+  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  max-width: 900px; /* 设置最大宽度 */
+  max-width: 900px;
 }
 
 .personalData {
@@ -14,25 +14,25 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
-  overflow: hidden; /* 确保不显示超出的内容 */
+  overflow: hidden;
 }
 
 .areaLeft {
   position: relative;
   padding: 20px;
-  border-right: 1px solid #ddd; /* 添加分隔线 */
+  border-right: 1px solid #ddd;
 }
 
 .userHead {
   width: 194px;
   height: 194px;
-  margin-bottom: 10px; /* 添加下边距 */
+  margin-bottom: 10px;
 }
 
 .userHead img {
   width: 100%;
-  height: auto; /* 使图像自适应 */
-  border-radius: 100%; /* 使头像圆形 */
+  height: auto;
+  border-radius: 100%;
   border: 2px solid #d7d7d7;
 }
 
@@ -44,7 +44,7 @@
   background: rgba(142, 142, 142, 0.8);
   border-radius: 4px;
   width: 225px;
-  text-align: center; /* 居中对齐 */
+  text-align: center;
 }
 
 .areaLeft:hover .btm {
@@ -53,7 +53,7 @@
 
 .upload {
   color: #ffffff;
-  line-height: 26px; /* 垂直居中 */
+  line-height: 26px;
   font-size: 14px;
   text-decoration: none;
 }
@@ -63,12 +63,12 @@
 }
 
 .areaRight {
-  padding: 20px; /* 添加内边距 */
+  padding: 20px;
   flex: 1;
 }
 
 .userInfo {
-  width: 100%; /* 让用户信息区自适应 */
+  width: 100%;
 }
 
 .userName {
@@ -81,27 +81,27 @@
 }
 
 .userName span {
-  font-size: 24px; /* 增加用户名的字体大小 */
-  font-weight: bold; /* 加粗 */
-  color: #333; /* 让文本颜色更深 */
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }
 
 .edit {
   font-size: 12px;
-  color: #0c0f0f; /* 设置编辑按钮颜色 */
+  color: #0c0f0f;
   text-decoration: none;
 }
 
 .edit:hover {
-  text-decoration: underline; /* 悬停效果 */
+  text-decoration: underline;
 }
 
 .userEmail,
 .userArea,
 .userBirth,
 .userGender {
-  font-size: 14px; /* 增大字体 */
-  line-height: 24px; /* 增加行高 */
-  color: #666; /* 更柔和的文本颜色 */
-  margin-top: 10px; /* 调整间距 */
+  font-size: 14px;
+  line-height: 24px;
+  color: #666;
+  margin-top: 10px;
 }

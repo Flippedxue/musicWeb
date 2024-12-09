@@ -69,7 +69,6 @@ const btn = document.querySelector('.top .bar-right .search input');
 btn.addEventListener('keydown', function (e) {
   if (e.key === "Enter") {
     const keyword = document.querySelector(".top .bar-right .search input[type='text']").value.trim();
-    //console.log(keyword);
 
     axios({
       url: 'http://localhost:8080/music/search',

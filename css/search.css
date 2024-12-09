@@ -224,11 +224,13 @@
 }
 
 .search-result-list ul li .detail {
+  flex: 6;
   width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 
 .win_box {
   position: fixed;
@@ -236,99 +238,99 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  max-height: 400px; /* 最大高度 */
-  background-color: #f8f9fa; /* 背景颜色 */
-  border-radius: 8px; /* 圆角 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 更自然的阴影效果 */
+  max-height: 400px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: none;
-  overflow-y: auto; /* 允许垂直滚动 */
+  overflow-y: auto;
 }
 
 .win_box::-webkit-scrollbar {
-  display: none; /* 隐藏滚动条 */
+  display: none;
 }
 
 .win_box .win_nav {
   width: 100%;
-  height: 50px; /* 增加导航高度 */
-  background-color: #343a40; /* 深色背景 */
-  border-radius: 8px 8px 0 0; /* 圆角 */
+  height: 50px;
+  background-color: #343a40;
+  border-radius: 8px 8px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
-  font-size: 20px; /* 字体大小 */
-  padding: 0 15px; /* 内边距 */
+  font-size: 20px;
+  padding: 0 15px;
 }
 
 .win_box .win_nav p {
-  margin: 0; /* 取消默认的margin */
+  margin: 0;
 }
 
 .win_box .win_nav a {
-  width: 20px; /* 增加关闭按钮的大小 */
+  width: 20px;
   height: 20px;
-  background-image: url('../images/close.png'); /* 关闭按钮图标 */
+  background-image: url('../images/close.png');
   background-size: cover;
-  cursor: pointer; /* 鼠标悬停效果 */
+  cursor: pointer;
 }
 
 .musicList_list {
   width: 100%;
-  padding: 10px; /* 内边距 */
+  padding: 10px;
 }
 
 .musicList_list ul {
-  list-style-type: none; /* 去掉默认列表样式 */
-  padding: 0; /* 去掉默认内边距 */
-  margin: 0; /* 去掉默认外边距 */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .musicList_list li {
-  display: flex; /* 使用 flex 布局 */
+  display: flex;
   width: 100%;
-  height: 65px; /* 每个列表项高度 */
-  align-items: center; /* 垂直居中 */
+  height: 65px;
+  align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #d3d3d3; /* 分隔线 */
-  cursor: pointer; /* 鼠标光标 */
+  border-bottom: 1px solid #d3d3d3;
+  cursor: pointer;
   position: relative;
-  transition: background-color 0.2s; /* 背景色过渡 */
+  transition: background-color 0.2s;
 }
 
 .musicList_list li:hover {
-  background-color: #e0dfdf; /* 悬停效果 */
+  background-color: #e0dfdf;
 }
 
 .musicList_list li .item_pic img {
-  width: 60px; /* 图片宽度 */
-  height: 60px; /* 图片高度 */
-  border-radius: 5px; /* 圆角效果 */
-  margin-left: 20px; /* 左侧间距 */
-  margin-right: 20px; /* 右侧间距 */
+  width: 60px; 
+  height: 60px;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .musicList_list .item_info {
-  display: flex; /* 使用 flex 布局 */
-  flex-grow: 1; /* 填满剩余空间 */
-  align-items: center; /* 垂直居中 */
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
 }
 
 .musicList_list .item_info .num {
-  font-size: 14px; /* 字体大小 */
-  color: #6c757d; /* 次要颜色 */
-  display: inline-block; /* 使其独占区域 */
-  margin-right: 10px; /* 右侧间距 */
+  font-size: 14px;
+  color: #6c757d;
+  display: inline-block;
+  margin-right: 10px;
   display: none;
 }
-}
+
 
 .musicList_list .item_info h3 {
-  margin: 0; /* 取消上下边距 */
-  font-size: 16px; /* 正常名称字体大小 */
-  color: #212529; /* 主色调 */
+  margin: 0;
+  font-size: 16px;
+  color: #212529;
 }
 
 hr {
-  margin: 5px 0; /* 上下间距 */
+  margin: 5px 0;
 }

@@ -37,7 +37,7 @@ function setSongIf() {
 function formatLyrics(lyrics) {
   const lines = lyrics.split('\n');
   const formattedLyrics = lines.map(line => line.trim()).filter(line => line).join('<br>');
-  return formattedLyrics; // 返回格式化的歌词
+  return formattedLyrics;
 }
 //初始化歌词展开收起功能
 function initLyricsToggle() {
@@ -55,9 +55,9 @@ function initLyricsToggle() {
     } else {
       // 点击展开
       lyricsElement.innerHTML = lines.join('<br>');
-      toggleBtn.textContent = "收起"; // 改变按钮文本
+      toggleBtn.textContent = "收起";
     }
-    isExpanded = !isExpanded; // 切换状态
+    isExpanded = !isExpanded;
   });
 }
 
@@ -142,7 +142,7 @@ function resetCommentIf() {
     url: 'http://localhost:8080/comment/getComments',
     method: 'get',
     params: {
-      musicId: songIf.id // 假设接口需要音乐ID作为参数
+      musicId: songIf.id
     }
   }).then(res => {
     if (res.data.code === 0) {

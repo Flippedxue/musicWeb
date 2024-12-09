@@ -37,7 +37,7 @@
 
 .main .content .item label {
   color: #555;
-  flex: 0 0 120px; /* 固定标签宽度 */
+  flex: 0 0 120px;
   margin-right: 10px;
 }
 

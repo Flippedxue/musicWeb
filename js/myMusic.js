@@ -1,4 +1,3 @@
-// 需要使用到的元素对象
 let stateSet = document.querySelector(".state_set");
 let musicHead = document.querySelector(".head");
 let musicOBJ = document.querySelector("audio");
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const userDataObj = JSON.parse(userData);
 
       if (userDataObj) {
-        document.querySelector('.outline .avatar img').src = userDataObj.userPic || ''; // 默认空字符串，以防没有头像
+        document.querySelector('.outline .avatar img').src = userDataObj.userPic || '';
         document.querySelector('.outline .avatar_title span').innerText = userDataObj.nickname || '用户名：未设置';
       } else {
         console.error('用户数据解析失败');
@@ -96,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
   musicJump();
 });
 
-//初始化变量 
 let time = null;
 let time2 = null;
 let time3 = null;
@@ -206,6 +204,22 @@ document.querySelector('.myMusic-result-list ul').addEventListener('click', func
 
     })
   }
+  if (e.target.classList.contains('download')) {
+    e.preventDefault();
+    const songUrl = e.target.closest('.item1').querySelector('.url').innerText;
+    const songTitle = e.target.closest('.item1').querySelector('.title').innerText;
+
+    // 创建下载链接
+    const link = document.createElement('a');
+    link.href = songUrl;
+    link.download = songTitle + ".mp3";
+
+    // 触发下载
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
 });
 
 // 音乐的开始和暂停方法

@@ -44,10 +44,8 @@ h2 {
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
-  /*将自身在垂直方向上移动自身高度的50%，实现垂直居中*/
   font-size: 1em;
   pointer-events: none;
-  /*禁用lable标签的鼠标事件*/
   color: #fff;
 }
 
@@ -62,7 +60,6 @@ h2 {
   padding: 0 35px 0 5px;
 }
 
-/*~同级所有兄弟 +同级第一个兄弟 >子代 ' '（空格）后代*/
 .input-box input:focus~label,
 .input-box input:valid~label {
   top: 5px;
@@ -104,10 +101,8 @@ button {
   background: #fa709a;
   border: none;
   outline: none;
-  /*轮廓与边框不同，不占据空间*/
   border-radius: 40px;
   cursor: pointer;
-  /*光标修改为手指形状*/
   font-size: 1em;
   color: #fff;
   font-weight: 500;

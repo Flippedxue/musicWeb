@@ -212,7 +212,6 @@
   height: 285px;
 }
 
-/* 轮播图点 */
 .banner .area .dots-list {
   position: absolute;
   bottom: 5px;
@@ -239,7 +238,6 @@
   background-position: -16px -343px;
 }
 
-/* 两个控制按钮 */
 .banner .area .control {
   position: absolute;
   top: 0;
