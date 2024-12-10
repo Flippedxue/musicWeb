@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const userDataObj = JSON.parse(userData);
 
     if (userDataObj) {
-      document.querySelector('.main .personalData .areaLeft .userHead img').src = userDataObj.userPic || '';
+      document.querySelector('.main .personalData .areaLeft .userHead img').src = userDataObj.userPic || '../images/默认头像.jpg';
       document.querySelector('.main .personalData .areaRight .userInfo .userName span').innerText = userDataObj.nickname || '用户名：未设置';
       document.querySelector('.main .personalData .areaRight .userInfo .userEmail span').innerText = `电子邮件：${userDataObj.email || '未设置'}`;
       document.querySelector('.main .personalData .areaRight .userInfo .userArea span').innerText = `所在地区：${userDataObj.region || '未设置'}`;

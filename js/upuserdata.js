@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
         : document.querySelector('.main input[name="gender"][value="female"]').checked = true;
       document.querySelector('.main input[name="birthday"]').value = userDataObj.birthday || '未设置';
       document.querySelector('.main input[name="email"]').value = userDataObj.email || '未设置';
-    } else {
       document.querySelector('.main input[name="area"]').value = userDataObj.region || '未设置';
+    } else {
       console.error('用户数据解析失败');
     }
   } else {

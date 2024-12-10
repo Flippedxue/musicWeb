@@ -62,7 +62,7 @@ function initLyricsToggle() {
 }
 
 function setuserIf() {
-  userHead.src = userData.userPic
+  if (userData) { userHead.src = userData.userPic } else { userHead.src = '../images/默认头像.jpg' }
 }
 
 function setcommentIf() {
@@ -77,7 +77,7 @@ function setcommentIf() {
     const headDiv = document.createElement('div')
     headDiv.classList.add('head')
     const avatarImg = document.createElement('img');
-    avatarImg.src = comment.userAvatar || '../images/userHead_01.jpg';
+    avatarImg.src = comment.userAvatar || '../images/../images/默认头像.jpg';
     headDiv.appendChild(avatarImg);
 
     const cntDiv = document.createElement('div')
@@ -99,37 +99,39 @@ function setcommentIf() {
     li.appendChild(itmDiv);
     li.appendChild(timeDiv);
 
-    if (comment.userId === userData.id) {
-      const deleteLink = document.createElement('a');
-      deleteLink.classList.add('delete');
-      deleteLink.textContent = '删除';
-      deleteLink.setAttribute('data-userId', comment.userId);
-      deleteLink.setAttribute('data-commentId', comment.id);
+    if (userData) {
+      if (comment.userId === userData.id) {
+        const deleteLink = document.createElement('a');
+        deleteLink.classList.add('delete');
+        deleteLink.textContent = '删除';
+        deleteLink.setAttribute('data-userId', comment.userId);
+        deleteLink.setAttribute('data-commentId', comment.id);
 
-      deleteLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        const token = localStorage.getItem('token')
-        axios({
-          url: 'http://localhost:8080/comment/delete',
-          method: 'POST',
-          params: {
-            commentId: comment.id
-          },
-          headers: { 'Authorization': token }
-        }).then(res => {
-          if (res.data.code === 0) {
+        deleteLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          const token = localStorage.getItem('token')
+          axios({
+            url: 'http://localhost:8080/comment/delete',
+            method: 'POST',
+            params: {
+              commentId: comment.id
+            },
+            headers: { 'Authorization': token }
+          }).then(res => {
+            if (res.data.code === 0) {
 
-            resetCommentIf();
-          } else {
-            alert(res.data.message);
-          }
-        }).catch(error => {
-          console.error('删除评论失败:', error);
-          alert('删除评论失败，请重试。');
+              resetCommentIf();
+            } else {
+              alert(res.data.message);
+            }
+          }).catch(error => {
+            console.error('删除评论失败:', error);
+            alert('删除评论失败，请重试。');
+          });
         });
-      });
 
-      li.appendChild(deleteLink);
+        li.appendChild(deleteLink);
+      }
     }
 
     commentList.appendChild(li);
@@ -234,6 +236,10 @@ function setText() {
     }
   })
   commentBtn.addEventListener('click', function (e) {
+    if(!userData){
+      alert("请先登录")
+      window.location.href = "login.html"
+    }
     if (tx.value.trim()) {
       const token = localStorage.getItem('token')
       axios({
